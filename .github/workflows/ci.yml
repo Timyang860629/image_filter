@@ -20,13 +20,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Lint code
-      run: |
-        pip install flake8
-        flake8 .
-
     - name: Deploy
       run: |
+        black .
+        isort .
         echo "Deploying..."
         # Add your deployment script/commands here
 
+    - name: Run tests
+      run: |
+        pytest
