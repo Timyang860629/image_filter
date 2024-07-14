@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on: [push, pull_request]
 
@@ -20,7 +20,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Lint code
+      run: |
+        pip install flake8
+        flake8 .
+
     - name: Run tests
       run: |
         python -m unittest discover -s tests
+
+    - name: Deploy
+      run: |
+        echo "Deploying..."
+        # Add your deployment script/commands here
 
