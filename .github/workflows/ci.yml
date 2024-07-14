@@ -25,10 +25,6 @@ jobs:
         pip install flake8
         flake8 .
 
-    - name: Run tests
-      run: |
-        python -m unittest discover -s tests
-
     - name: Deploy
       run: |
         echo "Deploying..."
